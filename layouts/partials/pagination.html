@@ -1,0 +1,36 @@
+{{ $pag := .Paginator }}
+{{ if gt $pag.TotalPages 1 }}
+<nav class="pagination is-hidden-mobile is-centered is-small">
+    <ul class="pagination-list">
+        <li>
+            <a class="pagination-link" {{ if not $pag.HasPrev }}disabled{{ end }} {{ if $pag.HasPrev }}href="{{ $pag.Prev.URL | relURL }}"{{ end }}>
+                Newer
+            </a>
+        </li>
+        {{ range $pag.Pagers }}
+        <li>
+            <a class="pagination-link {{ if eq . $pag }}is-current{{ end }}" href="{{ .URL | relURL }}">{{ .PageNumber }}</a>
+        </li>
+        {{ end }}
+        <li>
+            <a class="pagination-link" {{ if not $pag.HasNext }}disabled{{ end }} {{ if $pag.HasNext }}href="{{ $pag.Next.URL | relURL }}"{{ end }}>
+                Older
+            </a>
+        </li>
+    </ul>
+</nav>
+<nav class="pagination is-hidden-tablet is-centered is-medium">
+    <ul class="pagination-list">
+        <li>
+            <a class="pagination-link" {{ if not $pag.HasPrev }}disabled{{ end }} {{ if $pag.HasPrev }}href="{{ $pag.Prev.URL | relURL }}"{{ end }}>
+                Newer
+            </a>
+        </li>
+        <li>
+            <a class="pagination-link" {{ if not $pag.HasNext }}disabled{{ end }} {{ if $pag.HasNext }}href="{{ $pag.Next.URL | relURL }}"{{ end }}>
+                Older
+            </a>
+        </li>
+    </ul>
+</nav>
+{{ end }}

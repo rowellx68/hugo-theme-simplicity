@@ -1,0 +1,24 @@
+{{ partial "header.html" . }}
+{{ partial "navigation.html" . }}
+<div class="hero is-light has-particles" id="page-hero">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title has-text-weight-bold is-uppercase">{{ .Params.displayTitle }}</h1>
+            {{ with .Params.subtitle }}<h2 class="subtitle">{{ . }}</h2>{{ end }}
+        </div>
+    </div>
+</div>
+<section class="section">
+    <div class="container">
+        <div class="columns is-multiline">
+            {{ $paginated := .Paginate (where (where $.Site.Pages "Type" "in" "[see]") "Kind" "page") $.Site.Params.paginateSee }}
+            {{ range $paginated.Pages }}
+            <div class="column is-one-third">
+                {{ partial "index/post-preview.html" . }}
+            </div>
+            {{ end }}
+        </div>
+        {{ partial "pagination.html" . }}
+    </div>
+</section>
+{{ partial "footer.html" . }}

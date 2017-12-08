@@ -1,0 +1,81 @@
+@import "./_variables";
+@import "../../node_modules/bulma/bulma";
+
+@import "./index/_post-preview";
+@import "./index/_post-highlight";
+
+.navbar {
+    &.is-fixed-top {
+        box-shadow: 0 1px 2px rgba($black, 0.1);
+    }
+
+    &-burger {
+        &.button {
+            border-radius: 0;
+            border: none;
+        }
+    }
+
+    &-menu {
+        &.is-active {
+            border-top: 1px solid rgba($black, 0.1);
+            box-shadow: none;
+        }
+    }
+}
+
+.has-particles {
+    position: relative;
+
+    .hero-body {
+        position: relative;
+        z-index: 1;
+    }
+
+    .particles-js-canvas-el {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+}
+
+.content {
+    a {
+        text-decoration: underline;
+    }
+}
+
+.social-share {
+    &-link {
+        margin-right: 0.75rem;
+        color: $link !important;
+
+        &:hover {
+            color: $link-hover !important;
+        }
+
+        &:active {
+            color: $link-active !important;
+        }
+
+        &:focus {
+            color: $link-focus !important;
+        }
+    }
+}
+
+.footer {
+    &.is-white {
+        background-color: $white;
+    }
+}
+
+.footer-social {
+    margin-bottom: 1.5rem;
+    
+    &-item {
+        padding: 0 0.75rem;
+    }
+}

@@ -1,0 +1,40 @@
+$post-preview-color: $text !default;
+$post-preview-background-color: $white !default;
+$post-preview-title-color: $grey !default;
+$post-preview-content-border-top: 1px solid $primary !default;
+$post-preview-link-hover-background-color: rgba($primary, 0.05) !default;
+
+.post-preview {
+    background-color: $post-preview-background-color;
+    color: $post-preview-color;
+    max-width: 100%;
+    position: relative;
+
+    &-image {
+        display: block;
+        position: relative;
+    }
+
+    &-title {
+        color: $post-preview-title-color;
+        padding: 0.75rem;
+        text-align: center;
+    }
+
+    &-content {
+        border-top: $post-preview-content-border-top;
+        padding: 0.75rem 0.75rem 1rem 0.75rem;
+    }
+
+    &-link {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        &:hover {
+            background-color: $post-preview-link-hover-background-color;
+        }
+    }
+}

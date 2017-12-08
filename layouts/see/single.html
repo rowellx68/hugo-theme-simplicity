@@ -1,0 +1,19 @@
+{{ partial "header.html" . }}
+{{ partial "navigation.html" . }}
+<div class="hero is-light has-particles" id="page-hero">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title has-text-weight-bold is-uppercase">{{ .Params.displayTitle }}</h1>
+            {{ with .Params.subtitle }}<h2 class="subtitle">{{ . }}</h2>{{ end }}
+            {{ partial "social-share.html" . }}
+        </div>
+    </div>
+</div>
+<section class="section">
+    <div class="container">
+        <div class="content">
+            {{ .Content }}
+        </div>
+    </div>
+</section>
+{{ partial "footer.html" . }}

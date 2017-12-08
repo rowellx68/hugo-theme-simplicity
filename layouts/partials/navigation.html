@@ -1,0 +1,22 @@
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item has-text-weight-bold is-uppercase is-primary">
+                {{ .Site.Params.navTitle }}
+            </a>
+            <button href="#" class="button navbar-burger" data-target-id="nav-dropdown">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="navbar-menu" id="nav-dropdown">
+            <div class="navbar-end">
+                {{ $currentPage := . }}
+                {{ range .Site.Menus.main }}
+                <a href="{{ .URL | relURL }}" class="navbar-item {{ if eq $currentPage.URL .URL }}is-active{{ end }}">{{ .Name }}</a>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</nav>

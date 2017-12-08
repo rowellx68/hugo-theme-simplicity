@@ -1,0 +1,14 @@
+<div class="post-preview">
+    <div class="post-preview-image">
+        <figure class="image is-4by3">
+            <img src="/images/{{ .Type }}/{{ .File.BaseFileName }}/{{ .Params.headerImage }}-preview.jpg" alt="">
+        </figure>
+    </div>
+    <div class="post-preview-title has-text-weight-bold is-uppercase is-size-5">
+        <p>{{ .Title }}</p>
+    </div>
+    <div class="post-preview-content is-hidden-mobile">
+        <p>{{ .Summary | plainify | htmlUnescape }}</p>
+    </div>
+    <a href="{{ .URL }}" aria-label="{{ .Title }}" class="post-preview-link"></a>
+</div>

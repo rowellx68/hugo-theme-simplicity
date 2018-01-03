@@ -1,7 +1,12 @@
+{{ $original := .Resources.GetByPrefix (.Params.headerImage) }}
+{{ $options := "600x" }}
 <div class="post-preview">
     <div class="post-preview-image">
         <figure class="image is-4by3">
-            <img src="/images/{{ .Type }}/{{ .File.BaseFileName }}/{{ .Params.headerImage }}-preview.jpg" alt="">
+            {{ if ne $original nil }}
+            {{ $image := ($original.Resize $options) }}
+            <img src="{{ $image.RelPermalink }}">
+            {{ end }}
         </figure>
     </div>
     <div class="post-preview-title has-text-weight-bold is-uppercase is-size-5">

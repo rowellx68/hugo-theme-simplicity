@@ -8566,7 +8566,7 @@ label.panel-block {
     left: 0; }
 
 .content a {
-  text-decoration: underline; }
+  font-weight: bold; }
 
 .social-share-link {
   margin-right: 0.75rem;

@@ -2,7 +2,7 @@
     <div class="container">
         {{ partial "footer-social.html" . }}
         <div class="content has-text-centered is-small">
-            Built with <a href="http://bulma.io/">Bulma</a>. Powered by <a href="https://gohugo.io/">Hugo</a>.
+            Built with <a href="http://bulma.io/">Bulma</a>. Powered by <a href="https://gohugo.io/">Hugo</a>. {{ with .GitInfo }}{{ .AbbreviatedHash }}{{ end }}
         </div>
     </div>
     <div class="slice-top-left"></div>

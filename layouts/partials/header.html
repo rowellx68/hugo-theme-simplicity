@@ -24,33 +24,18 @@
     <meta name="description" content="{{ $description }}">
     {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
     {{ with .Site.Params.googleVerify }}<meta name="google-site-verification" content="{{ . }}">{{ end }}
-    
     <meta itemprop="name" content="{{ $title }}">
     <meta itemprop="description" content="{{ $description }}">
     {{ with $image }}<meta itemprop="image" content="{{ .RelPermalink | absURL }}">{{ end }}
-
     <meta property="og:url" content="{{ .Site.BaseURL }}">
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{ $title }}">
     <meta property="og:description" content="{{ $description }}">
     {{ with $image }}<meta property="og:image" content="{{ .RelPermalink | absURL }}">{{ end }}
-    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ $title }}">
     <meta name="twitter:description" content="{{ $description }}">
     {{ with $image }}<meta name="twitter:image" content="{{ .RelPermalink | absURL }}">{{ end }}
-
-    {{ if ne .Params.metaImage nil }}
-    {{ $options := "960x" }}
-    {{ $original := .Resources.GetByPrefix (.Params.metaImage) }}
-    {{ if ne  $original nil }}
-    {{ $image := ($original.Resize $options) }}
-    <meta itemprop="image" content="{{ $image.RelPermalink | absURL }}">
-    <meta property="og:image" content="{{ $image.RelPermalink | absURL }}">
-    <meta name="twitter:image" content="{{ $image.RelPermalink | absURL }}">
-    {{ end }}
-    {{ end }}
-    
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/fontawesome-all.min.css">
     {{ .Hugo.Generator }}

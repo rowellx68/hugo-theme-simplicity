@@ -16,4 +16,13 @@
         </div>
     </div>
 </section>
+{{ if .Site.DisqusShortname }}
+<section class="section">
+    <div class="container">
+        <article>
+            {{ template "_internal/disqus.html" . }}
+        </article>
+    </div>
+</section>
+{{ end }}
 {{ partial "footer.html" . }}

@@ -1,13 +1,56 @@
+{{ $title := delimit (slice (.Site.Title | htmlUnescape) (.Title | htmlUnescape)) " | " }}
+{{ with .Params.description }}
+{{ $.Scratch.Add "description" (. | htmlUnescape) }}
+{{ else }}
+{{ $.Scratch.Add "description" (.Site.Params.description | htmlUnescape) }}
+{{ end }}
+{{ $description := $.Scratch.Get "description" }}
+
+{{ if ne .Params.metaImage nil }}
+    {{ $options := "960x" }}
+    {{ $original := .Resources.GetByPrefix (.Params.metaImage) }}
+    {{ if ne  $original nil }}
+    {{ $.Scratch.Add "image" ($original.Resize $options) }}
+    {{ end }}
+{{ end }}
+{{ $image := $.Scratch.Get "image" }}
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode | default "en-gb" }}" class="has-navbar-fixed-top">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ .Site.Title | htmlUnescape }} | {{ .Title | htmlUnescape }}</title>
-    {{ with .Params.description }}<meta name="description" content="{{ . | htmlUnescape }}">{{ else }}<meta name="description" content="{{ .Site.Params.description | htmlUnescape }}">{{ end }}
+    <title>{{ $title }}</title>
+    <meta name="description" content="{{ $description }}">
     {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
     {{ with .Site.Params.googleVerify }}<meta name="google-site-verification" content="{{ . }}">{{ end }}
+    
+    <meta itemprop="name" content="{{ $title }}">
+    <meta itemprop="description" content="{{ $description }}">
+    {{ with $image }}<meta itemprop="image" content="{{ .RelPermalink | absURL }}">{{ end }}
+
+    <meta property="og:url" content="{{ .Site.BaseURL }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ $title }}">
+    <meta property="og:description" content="{{ $description }}">
+    {{ with $image }}<meta property="og:image" content="{{ .RelPermalink | absURL }}">{{ end }}
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $title }}">
+    <meta name="twitter:description" content="{{ $description }}">
+    {{ with $image }}<meta name="twitter:image" content="{{ .RelPermalink | absURL }}">{{ end }}
+
+    {{ if ne .Params.metaImage nil }}
+    {{ $options := "960x" }}
+    {{ $original := .Resources.GetByPrefix (.Params.metaImage) }}
+    {{ if ne  $original nil }}
+    {{ $image := ($original.Resize $options) }}
+    <meta itemprop="image" content="{{ $image.RelPermalink | absURL }}">
+    <meta property="og:image" content="{{ $image.RelPermalink | absURL }}">
+    <meta name="twitter:image" content="{{ $image.RelPermalink | absURL }}">
+    {{ end }}
+    {{ end }}
+    
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/fontawesome-all.min.css">
     {{ .Hugo.Generator }}

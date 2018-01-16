@@ -27,12 +27,12 @@
     <meta itemprop="name" content="{{ $title }}">
     <meta itemprop="description" content="{{ $description }}">
     {{ with $image }}<meta itemprop="image" content="{{ .RelPermalink | absURL }}">{{ end }}
-    <meta property="og:url" content="{{ .Site.BaseURL }}">
+    <meta property="og:url" content="{{ .RelPermalink | absURL }}">
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{ $title }}">
     <meta property="og:description" content="{{ $description }}">
     {{ with $image }}<meta property="og:image" content="{{ .RelPermalink | absURL }}">{{ end }}
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:card" content="{{ with $image }}summary_large_image{{ else }}summary{{ end }}">
     <meta name="twitter:title" content="{{ $title }}">
     <meta name="twitter:description" content="{{ $description }}">
     {{ with $image }}<meta name="twitter:image" content="{{ .RelPermalink | absURL }}">{{ end }}

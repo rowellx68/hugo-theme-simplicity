@@ -14,6 +14,10 @@
     {{ end }}
 {{ end }}
 {{ $image := $.Scratch.Get "image" }}
+{{ if ne .Site.Params.favIcon nil }}
+    {{ $.Scratch.Add "icon" (delimit (slice .Site.BaseURL .Site.Params.favIcon) "") }}
+{{ end }}
+{{ $icon := $.Scratch.Get "icon" }}
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode | default "en-gb" }}" class="has-navbar-fixed-top">
 <head>
@@ -38,6 +42,7 @@
     {{ with $image }}<meta name="twitter:image" content="{{ .RelPermalink | absURL }}">{{ end }}
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/fontawesome-all.min.css">
+    {{ with $icon }}<link rel="icon" type="image/png" href="{{ . }}" />{{ end }}
     {{ .Hugo.Generator }}
 </head>
 <body>

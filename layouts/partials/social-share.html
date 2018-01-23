@@ -1,4 +1,4 @@
-<div class="social-share is-size-5 is-size-4-mobile">
+<div class="social-share is-size-5 is-size-4-mobile {{ with .PublishDate }}has-margin-bottom-1-5{{ end }}">
     <a href="#" data-sharable data-social="LinkedIn" data-site="linkedin" data-title="{{ .Title }}" class="fab fa-fw fa-linkedin social-share-link"></a>
     <a href="#" data-sharable data-social="Twitter" data-site="twitter" data-title="{{ .Title }}" class="fab fa-fw fa-twitter social-share-link"></a>
     <a href="#" data-sharable data-social="Facebook" data-site="facebook" data-title="{{ .Title }}" class="fab fa-fw fa-facebook social-share-link"></a>

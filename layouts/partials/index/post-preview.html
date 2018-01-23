@@ -9,9 +9,9 @@
             {{ end }}
         </figure>
     </div>
-    <div class="post-preview-title has-text-weight-bold is-uppercase is-size-5">
-        <p>{{ .Title }}</p>
-    </div>
+    <h3 class="post-preview-title has-text-weight-bold is-uppercase is-size-5">
+        {{ .Title }}
+    </h3>
     <div class="post-preview-content is-hidden-mobile">
         <p>{{ .Summary | plainify | htmlUnescape }}</p>
     </div>

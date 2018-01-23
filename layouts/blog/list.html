@@ -1,0 +1,20 @@
+{{ partial "header.html" . }}
+{{ partial "navigation.html" . }}
+<div class="hero is-light has-particles" id="page-hero">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title has-text-weight-bold is-uppercase">{{ .Params.displayTitle }}</h1>
+            {{ with .Params.subtitle }}<h2 class="subtitle">{{ . }}</h2>{{ end }}
+        </div>
+    </div>
+</div>
+<section class="section">
+    <div class="container">
+        {{ $paginated := .Paginate (where (where $.Site.Pages "Type" "in" "[blog]") "Kind" "page") $.Site.Params.paginateBlog }}
+        {{ range $paginated.Pages }}
+        {{ partial "index/blog-preview.html" . }}
+        {{ end }}
+        {{ partial "pagination.html" . }}
+    </div>
+</section>
+{{ partial "footer.html" . }}

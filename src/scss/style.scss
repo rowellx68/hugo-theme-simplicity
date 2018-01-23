@@ -1,6 +1,7 @@
 @import "./_variables";
 @import "../../node_modules/bulma/bulma";
 
+@import "./index/_blog-preview";
 @import "./index/_post-preview";
 @import "./index/_review-preview";
 @import "./index/_post-highlight";
@@ -46,6 +47,14 @@
     &-top {
         &-none {
             padding-top: 0;
+        }
+    }
+}
+
+.has-margin {
+    &-bottom {
+        &-1-5 {
+            margin-bottom: 1.5rem;
         }
     }
 }

@@ -1,0 +1,12 @@
+<div class="box blog-preview">
+    <div class="media-content">
+        <h3 class="blog-preview-title has-text-weight-bold is-uppercase is-size-5">
+            {{ .Title }}
+        </h3>
+        <span class="blog-preview-subtitle has-text-weight-bold">{{ .PublishDate.Format "Jan 2, 2006" }}</span>
+        <div class="blog-preview-content">
+            <p>{{ .Summary | plainify | htmlUnescape }}</p>
+        </div>
+    </div>
+    <a href="{{ .URL }}" aria-label="{{ .Title }}" class="blog-preview-link"></a>
+</div>

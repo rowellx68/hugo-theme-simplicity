@@ -19,6 +19,16 @@
         </div>
     </div>
 </section>
+{{ if $.Site.Params.hasBlog }}
+<section class="section has-padding-top-none">
+    <div class="container">
+        <h2 class="title has-text-weight-bold is-uppercase">Blog</h2>
+        {{ range first $.Site.Params.PaginateIndex (where (where $.Site.Pages "Type" "in" "[blog]") "Kind" "page") }}
+        {{ partial "index/blog-preview.html" . }}
+        {{ end }}
+    </div>
+</section>
+{{ end }}
 {{ if $.Site.Params.hasReview }}
 <section class="section has-padding-top-none">
     <div class="container">

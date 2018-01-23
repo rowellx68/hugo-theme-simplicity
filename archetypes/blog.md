@@ -5,7 +5,8 @@ description = ""
 displayTitle = "{{ replace .TranslationBaseName "-" " " | title }}"
 headerImage = ""
 metaImage = ""
+publishdate = "{{ .Date }}"
 tags = []
 title = "{{ replace .TranslationBaseName "-" " " | title }}"
-type = "see"
+type = "blog"
 +++

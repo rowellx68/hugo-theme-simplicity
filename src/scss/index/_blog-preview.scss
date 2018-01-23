@@ -1,0 +1,45 @@
+$blog-preview-color: $text !default;
+$blog-preview-background-color: $white !default;
+$blog-preview-title-color: $grey !default;
+$blog-preview-subtitle-color: darken($grey, 10%) !default;
+$blog-preview-content-border-top: 1px solid $primary !default;
+$blog-preview-link-hover-background-color: rgba($primary, 0.05) !default;
+
+.blog-preview {
+    background-color: $blog-preview-background-color;
+    color: $blog-preview-color;
+    max-width: 100%;
+    position: relative;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0.5rem;
+
+    &-title {
+        color: $blog-preview-title-color;
+        padding-bottom: 0.25rem;
+    }
+
+    &-subtitle {
+        color: $blog-preview-subtitle-color;
+        display: block;
+        margin-top: -0.5rem;
+    }
+
+    &-content {
+        margin-top: 0.75rem;
+        padding-top: 0.75rem;
+        border-top: $blog-preview-content-border-top;
+    }
+
+    &-link {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        &:hover {
+            background-color: $blog-preview-link-hover-background-color;
+        }
+    }
+}

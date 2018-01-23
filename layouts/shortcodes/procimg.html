@@ -1,4 +1,8 @@
-{{ $original := .Page.Resources.GetByPrefix (.Get "name") }}
+{{ $imagePath := .Get "src" }}
+{{ if eq $imagePath nil }}
+{{ errorf "Image path is empty"}}
+{{ end }}
+{{ $original := .Page.Resources.GetMatch $imagePath }}
 {{ $command := .Get "command" }}
 {{ $options := .Get "options" }}
 {{ if eq $command "Fit"}}

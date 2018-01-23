@@ -1,4 +1,4 @@
-{{ $original := .Resources.GetByPrefix (.Params.headerImage) }}
+{{ $original := .Resources.GetMatch (.Params.headerImage) }}
 {{ $options := "600x" }}
 <div class="post-preview">
     <div class="post-preview-image">

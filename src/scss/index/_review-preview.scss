@@ -1,0 +1,28 @@
+$review-preview-color: $text !default;
+$review-preview-background-color: $white !default;
+$review-preview-title-color: $grey !default;
+$review-preview-link-hover-background-color: rgba($primary, 0.05) !default;
+
+.review-preview {
+    background-color: $review-preview-background-color;
+    color: $review-preview-color;
+    max-width: 100%;
+    position: relative;
+
+    &-title {
+        color: $review-preview-title-color;
+        padding-bottom: 0.25rem;
+    }
+
+    &-link {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        &:hover {
+            background-color: $review-preview-link-hover-background-color;
+        }
+    }
+}

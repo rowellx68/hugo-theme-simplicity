@@ -1,0 +1,11 @@
+<div class="box review-preview">
+    <div class="media-content">
+        <div class="review-preview-title has-text-weight-bold is-uppercase">
+            <p>{{ .Title }}</p>
+        </div>
+        <div class="review-preview-content">
+            <p>{{ .Summary | plainify | htmlUnescape }}</p>
+        </div>
+    </div>
+    <a href="{{ .URL }}" aria-label="{{ .Title }}" class="review-preview-link"></a>
+</div>

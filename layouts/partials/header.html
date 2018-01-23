@@ -5,10 +5,9 @@
 {{ $.Scratch.Add "description" (.Site.Params.description | htmlUnescape) }}
 {{ end }}
 {{ $description := $.Scratch.Get "description" }}
-
 {{ if ne .Params.metaImage nil }}
     {{ $options := "960x" }}
-    {{ $original := .Resources.GetByPrefix (.Params.metaImage) }}
+    {{ $original := .Resources.GetMatch (.Params.metaImage) }}
     {{ if ne  $original nil }}
     {{ $.Scratch.Add "image" ($original.Resize $options) }}
     {{ end }}

@@ -11,14 +11,22 @@
 <section class="section">
     <div class="container">
         <div class="columns is-multiline">
-            {{ $paginated := .Paginate (where (where $.Site.Pages "Type" "in" "[see]") "Kind" "page") }}
-            {{ range $paginated.Pages }}
+            {{ range first $.Site.Params.PaginateIndex (where (where $.Site.Pages "Type" "in" "[see]") "Kind" "page") }}
             <div class="column is-one-third">
                 {{ partial "index/post-preview.html" . }}
             </div>
             {{ end }}
         </div>
-        {{ partial "pagination.html" . }}
     </div>
 </section>
+{{ if $.Site.Params.hasReview }}
+<section class="section has-padding-top-none">
+    <div class="container">
+        <h2 class="title has-text-weight-bold is-uppercase">Reviews</h2>
+        {{ range first $.Site.Params.PaginateIndex (where (where $.Site.Pages "Type" "in" "[review]") "Kind" "page") }}
+        {{ partial "index/review-preview.html" . }}
+        {{ end }}
+    </div>
+</section>
+{{ end }}
 {{ partial "footer.html" . }}

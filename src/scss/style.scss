@@ -2,6 +2,7 @@
 @import "../../node_modules/bulma/bulma";
 
 @import "./index/_post-preview";
+@import "./index/_review-preview";
 @import "./index/_post-highlight";
 
 .navbar {
@@ -38,6 +39,14 @@
         right: 0;
         bottom: 0;
         left: 0;
+    }
+}
+
+.has-padding {
+    &-top {
+        &-none {
+            padding-top: 0;
+        }
     }
 }
 

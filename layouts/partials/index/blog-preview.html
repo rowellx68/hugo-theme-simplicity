@@ -5,7 +5,7 @@
         </h3>
         <span class="blog-preview-subtitle has-text-weight-bold">{{ .PublishDate.Format "Jan 2, 2006" }}</span>
         <div class="blog-preview-content">
-            <p>{{ .Summary | plainify | htmlUnescape }}</p>
+            <p>{{ emojify (.Summary | plainify | htmlUnescape) }}</p>
         </div>
     </div>
     <a href="{{ .URL }}" aria-label="{{ .Title }}" class="blog-preview-link"></a>

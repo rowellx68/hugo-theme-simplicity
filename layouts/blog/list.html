@@ -8,9 +8,10 @@
         </div>
     </div>
 </div>
+{{ $items := (where (where $.Site.Pages "Type" "in" "[blog]") "Kind" "page") }}
 <section class="section">
     <div class="container">
-        {{ $paginated := .Paginate (where (where $.Site.Pages "Type" "in" "[blog]") "Kind" "page") $.Site.Params.paginateBlog }}
+        {{ $paginated := .Paginate $items $.Site.Params.paginateBlog }}
         {{ range $paginated.Pages }}
         {{ partial "index/blog-preview.html" . }}
         {{ end }}

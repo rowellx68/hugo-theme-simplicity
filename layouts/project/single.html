@@ -1,0 +1,29 @@
+{{ partial "header.html" . }}
+{{ partial "navigation.html" . }}
+<div class="hero is-light has-particles" id="page-hero">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title has-text-weight-bold is-uppercase">{{ .Params.displayTitle }}</h1>
+            {{ with .Params.subtitle }}<h2 class="subtitle">{{ . }}</h2>{{ end }}
+            {{ partial "social-share.html" . }}
+            <span class="has-text-weight-bold">{{ .PublishDate.Format "Jan 2, 2006" }}</span>
+        </div>
+    </div>
+</div>
+<section class="section">
+    <div class="container">
+        <div class="content">
+            {{ emojify .Content }}
+        </div>
+    </div>
+</section>
+{{ if .Site.DisqusShortname }}
+<section class="section">
+    <div class="container">
+        <article>
+            {{ template "_internal/disqus.html" . }}
+        </article>
+    </div>
+</section>
+{{ end }}
+{{ partial "footer.html" . }}

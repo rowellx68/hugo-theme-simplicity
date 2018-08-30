@@ -6,12 +6,12 @@
             <h1 class="title has-text-weight-bold is-uppercase">{{ .Params.displayTitle }}</h1>
             {{ with .Params.subtitle }}<h2 class="subtitle">{{ . }}</h2>{{ end }}
             {{ partial "social-share.html" . }}
-            <span class="has-text-weight-bold">{{ .PublishDate.Format "Jan 2, 2006" }}</span>
         </div>
     </div>
 </div>
 <section class="section">
     <div class="container">
+        <div class="has-text-weight-bold has-margin-bottom-1-5">Published on {{ .PublishDate.Format "Jan 2, 2006" }}</div>
         <div class="content">
             {{ emojify .Content }}
         </div>

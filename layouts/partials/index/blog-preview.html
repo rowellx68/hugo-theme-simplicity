@@ -4,7 +4,7 @@
             {{ .Title }}
         </h3>
         <span class="blog-preview-subtitle has-text-weight-bold">{{ .PublishDate.Format "Jan 2, 2006" }}</span>
-        <div class="blog-preview-content">
+        <div class="blog-preview-content content">
             <p>{{ emojify (.Summary | plainify | htmlUnescape) }}</p>
         </div>
     </div>

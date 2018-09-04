@@ -12,9 +12,11 @@ html {
 
 .content {
     line-height: 2;
+    font-family: 'Noto Serif', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     
-    p {
-        font-family: 'Noto Serif', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    figure {
+        margin-left: 0;
+        margin-right: 0;
     }
     
     pre,
@@ -24,6 +26,7 @@ html {
     
     pre {
         line-height: initial;
+        font-family: nonospace;
     }
     
     .highlight {

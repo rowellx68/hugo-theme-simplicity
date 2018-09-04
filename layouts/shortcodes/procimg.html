@@ -21,9 +21,9 @@
     {{ if .Get "link"}}</a>{{ end }}
     {{ if or (or (.Get "title") (.Get "caption")) (.Get "attr")}}
     <figcaption>{{ if isset .Params "title" }}
-        <div>{{ .Get "title" }}</div>{{ end }}
+        <div>{{ .Get "title" | markdownify }}</div>{{ end }}
         {{ if or (.Get "caption") (.Get "attr")}}<p>
-        {{ .Get "caption" }}
+        {{ .Get "caption" | markdownify }}
         {{ with .Get "attrlink"}}<a href="{{.}}"> {{ end }}
             {{ .Get "attr" }}
         {{ if .Get "attrlink"}}</a> {{ end }}

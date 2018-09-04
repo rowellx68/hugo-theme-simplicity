@@ -8469,15 +8469,18 @@ html {
   overflow-y: auto; }
 
 .content {
-  line-height: 2; }
-  .content p {
-    font-family: 'Noto Serif', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; }
+  line-height: 2;
+  font-family: 'Noto Serif', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; }
+  .content figure {
+    margin-left: 0;
+    margin-right: 0; }
   .content pre,
   .content blockquote {
     -webkit-border-radius: 3px;
             border-radius: 3px; }
   .content pre {
-    line-height: initial; }
+    line-height: initial;
+    font-family: nonospace; }
   .content .highlight pre {
     background-color: rgba(39, 40, 34, 0.9) !important; }
 

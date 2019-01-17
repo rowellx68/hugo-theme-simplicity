@@ -1,15 +1,15 @@
 {{ $title := delimit (slice (.Site.Title | htmlUnescape) (.Title | htmlUnescape)) " | " }}
 {{ with .Params.description }}
-{{ $.Scratch.Add "description" (. | htmlUnescape) }}
+    {{ $.Scratch.Add "description" (. | htmlUnescape) }}
 {{ else }}
-{{ $.Scratch.Add "description" (.Site.Params.description | htmlUnescape) }}
+    {{ $.Scratch.Add "description" (.Site.Params.description | htmlUnescape) }}
 {{ end }}
 {{ $description := $.Scratch.Get "description" }}
 {{ if ne .Params.metaImage nil }}
     {{ $options := "960x" }}
     {{ $original := .Resources.GetMatch (.Params.metaImage) }}
-    {{ if ne  $original nil }}
-    {{ $.Scratch.Add "image" ($original.Resize $options) }}
+    {{ if ne $original nil }}
+        {{ $.Scratch.Add "image" ($original.Resize $options) }}
     {{ end }}
 {{ end }}
 {{ $image := $.Scratch.Get "image" }}

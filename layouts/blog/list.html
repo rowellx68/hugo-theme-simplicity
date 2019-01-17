@@ -13,7 +13,7 @@
     <div class="container">
         {{ $paginated := .Paginate $items $.Site.Params.paginateBlog }}
         {{ range $paginated.Pages }}
-        {{ partial "index/blog-preview.html" . }}
+            {{ partial "index/blog-preview.html" . }}
         {{ end }}
         {{ partial "pagination.html" . }}
     </div>

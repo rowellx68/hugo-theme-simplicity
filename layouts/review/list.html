@@ -12,7 +12,7 @@
     <div class="container">
         {{ $paginated := .Paginate (where (where $.Site.Pages "Type" "in" "[review]") "Kind" "page") $.Site.Params.paginateReview }}
         {{ range $paginated.Pages }}
-        {{ partial "index/review-preview.html" . }}
+            {{ partial "index/review-preview.html" . }}
         {{ end }}
         {{ partial "pagination.html" . }}
     </div>
